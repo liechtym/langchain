@@ -36,9 +36,12 @@ def _serialize_io(run_inputs: dict) -> dict:
         if isinstance(value, Message):
             serialized_inputs[key] = MessageToJson(value)
         elif key == "input_documents":
-            serialized_inputs.update(
-                {f"input_document_{i}": doc.json() for i, doc in enumerate(value)}
-            )
+            try:
+                serialized_inputs.update(
+                    {f"input_document_{i}": doc.json() for i, doc in enumerate(value)}
+                )
+            except:
+                import pdb; pdb.set_trace()
         else:
             serialized_inputs[key] = value
     return serialized_inputs
