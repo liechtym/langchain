@@ -61,6 +61,8 @@ class RunProcessor:
             return span
         except Exception as e:
             if PRINT_WARNINGS:
+                import traceback
+                traceback.print_exc()
                 self.wandb.termwarn(
                     f"Skipping trace saving - unable to safely convert LangChain Run "
                     f"into W&B Trace due to: {e}"
