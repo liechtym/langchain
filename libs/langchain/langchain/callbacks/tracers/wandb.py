@@ -484,7 +484,6 @@ class WandbTracer(BaseTracer):
         )
         if self._wandb.run is not None:
             try:
-                import pdb; pdb.set_trace()
                 self._wandb.run.log({"langchain_trace": model_trace})
             except TypeError:
                 import traceback
