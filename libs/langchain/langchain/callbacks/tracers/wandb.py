@@ -482,6 +482,7 @@ class WandbTracer(BaseTracer):
             root_span=root_span,
             model_dict=model_dict,
         )
+        import pdb; pdb.set_trace()
         if self._wandb.run is not None:
             self._wandb.run.log({"langchain_trace": model_trace})
             import pdb; pdb.set_trace()
