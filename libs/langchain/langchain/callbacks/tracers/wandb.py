@@ -202,6 +202,7 @@ class RunProcessor:
             output = self.build_tree(processed)
             return output
         except Exception as e:
+            import pdb; pdb.set_trace()
             if PRINT_WARNINGS:
                 self.wandb.termwarn(f"WARNING: Failed to serialize model: {e}")
             return None
