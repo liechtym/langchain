@@ -484,6 +484,7 @@ class WandbTracer(BaseTracer):
         )
         if self._wandb.run is not None:
             self._wandb.run.log({"langchain_trace": model_trace})
+            import pdb; pdb.set_trace()
 
     def _ensure_run(self, should_print_url: bool = False) -> None:
         """Ensures an active W&B run exists.
